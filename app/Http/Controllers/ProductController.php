@@ -16,14 +16,14 @@ class ProductController extends Controller
         $this->repo = $repo;
     }
 
-	public function productList(Request $request)
+	public function product(Request $request)
 	{
-		$locale = App::getLocale();
+		// $locale = App::getLocale();
 		
-		$request->merge(['locale' => $locale]);
-
-		$products = $this->repo->productList($request);
-
-		return view('products.index', compact('products'));	
+		// $request->merge(['locale' => $locale]);
+		// $products = $this->repo->product($request)['data'];
+			// dd($products);
+		$products= $this->repo->product(($request));
+		return view('product', compact('products'));	
 	}
 }
